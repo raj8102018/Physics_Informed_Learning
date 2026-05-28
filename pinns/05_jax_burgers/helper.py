@@ -8,8 +8,8 @@ def u_fn(params, x, t):
     x = jnp.asarray(x).reshape(())
     t = jnp.asarray(t).reshape(())
 
-    x_array = jnp.array([x])
-    t_array = jnp.array([t])
+    x_array = jnp.array([[x]])
+    t_array = jnp.array([[t]])
 
     u_array = PINN().apply(params, x_array, t_array)
 
