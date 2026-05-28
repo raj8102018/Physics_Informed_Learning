@@ -14,13 +14,17 @@ def pde(x, u):
 
     return u_tt - u_xx
 
-def boundary_value(x):
+def bc_func(x):
 
-    return np.sin(np.pi * x[:, 0:1])
+    return np.zeros((len(x),1))
 
-bc = dde.icbc.DirichletBC(geomtime, boundary_value, lambda _, on_boundary: on_boundary)
+def ic_func(x):
 
-ic1 = dde.icbc.IC(geomtime, boundary_value, lambda _, on_initial: on_initial)
+    return np.sin(np.pi * x[:,0:1])
+
+bc = dde.icbc.DirichletBC(geomtime, bc_func, lambda _, on_boundary: on_boundary)
+
+ic1 = dde.icbc.IC(geomtime, ic_func, lambda _, on_initial: on_initial)
 
 def initial_velocity(x, u, _):
 
