@@ -35,5 +35,4 @@ model.compile("adam", lr=1e-3)
 
 losshistory, train_state = model.train(iterations=2000)
 
-
 print("SUCCESS: DeepXDE successfully compiled and trained the 1D Diffusion PDE.")
