@@ -35,7 +35,7 @@ To reach that goal, I am systematically studying and implementing the major idea
 
 ```text
 Physics-Informed-Learning/
-├── ReadMe.md
+├── README.md
 ├── requirements.txt
 └── pinns/
     ├── pinns_notes.pdf
@@ -46,7 +46,40 @@ Physics-Informed-Learning/
     ├── 04_poisson_2d ───────────── pytorch · jax · deepxde
     ├── 05_wave_1d ──────────────── pytorch · jax · deepxde
     │
-    └── terzaghi_consolidation ──── nnx · deepxde    ← showcase
+    └── terzaghi_consolidation ──── nnx · deepxde
+```
+
+---
+
+## Setup
+
+```bash
+python -m venv .venv
+# Windows: .venv\Scripts\activate
+# Linux/macOS: source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+**How to run**
+
+| Stack | Entry point |
+| ----- | ----------- |
+| **PyTorch** (`pytorch/`) | `python run.py` |
+| **JAX / Flax** (`jax/` or `nnx/`) | `python run.py` |
+| **DeepXDE** (`deepxde/`) | `python model.py` (training runs on import) |
+
+Example (diffusion, PyTorch):
+
+```bash
+cd pinns/01_diffusion/pytorch
+python run.py
+```
+
+Example (diffusion, DeepXDE):
+
+```bash
+cd pinns/01_diffusion/deepxde
+python model.py
 ```
 
 ### Notes
@@ -148,6 +181,12 @@ This repository is heavily inspired by foundational work in Scientific Machine L
 * Raissi et al. — Physics-Informed Neural Networks
 
 Additional references are listed within individual modules as they are implemented.
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
